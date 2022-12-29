@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <boost/lexical_cast.hpp>
 
 #include <HtmlElement.h>
@@ -11,11 +10,12 @@ void printHeader() {
    cout << endl;
    cout << "================================================" << endl;
    cout << "Design Patterns in Modern C++ by Dmitri Nesteruk" << endl;
-   cout << "Builder, raw version, no builder                 "<< endl;
+   cout << "Builder, simple builder                          "<< endl;
    cout << "================================================" << endl;
    cout << endl;
 }
 
+/*
 void noBuilder() {
     std::string words[] = { "witaj", "świecie" };
     std::ostringstream oss;
@@ -37,16 +37,28 @@ void oopElementsList() {
    //printf(list.str().c_str());
    cout << list.str().c_str() << endl;
 }
+*/
+
+struct HtmlSimpleBuilder {
+   HtmlElement root;
+   HtmlSimpleBuilder( const std::string root_name ) { root.name = root_name; }
+
+   void add_child( const std::string child_name, const std::string child_text ) {
+      HtmlElement e( child_name, child_text );
+      root.elements.emplace_back( e );
+   }
+
+   std::string str() { return root.str(); }
+};
 
 int main(int argc, char *argv[]) {
    printHeader();
 
-   cout << ">>> Calling noBuilder():" << endl;
-   noBuilder();
-
-   cout << ">>> Calling oopElementsList():" << endl;
-   oopElementsList();
-
+   HtmlSimpleBuilder builder{ "ul" };
+   builder.add_child( "li", "witaj");
+   builder.add_child( "li", "świecie");
+   cout << builder.str();
+   
    cout << endl;
    return 0;
 }
