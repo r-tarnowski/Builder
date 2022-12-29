@@ -13,16 +13,27 @@ struct HtmlElement {
    std::string name;
    std::string text;
    std::vector<HtmlElement> elements;
+   //std::ostringstream oss;
 
-   HtmlElement() {}
+   HtmlElement() = default;
    HtmlElement( const std::string & name, const std::string & text)
                 : name( name ), text( text ) {}
 
    std::string str( int indent = 0 ) const {
-      //std::ostringstream oss;
-      //return oss.
-      std::string output = "Calling HtmlElement." + name + ".str()";
-      return output;
+      //std::string output = "Calling HtmlElement." + name + ".str()";
+      std::ostringstream oss;
+      oss << "<" << name << ">";
+      if ( text.length() ) {
+         oss << text;
+      }
+      if ( ! elements.empty() ) {
+         for ( auto element : elements ) {
+            oss << element.str();
+         }
+      }
+      oss << "</" << name << ">";
+      //oss << output;
+      return oss.str();
    }
 };
 

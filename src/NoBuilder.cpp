@@ -22,7 +22,7 @@ void noBuilder() {
     std::ostringstream oss;
     oss << "<ul>";
     for ( auto word : words ) {
-        oss << " <li>" << word << "</li>";
+        oss << "<li>" << word << "</li>";
     }
     oss << "</ul>";
     //printf( oss.str().c_str() );
