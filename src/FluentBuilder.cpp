@@ -10,18 +10,19 @@ void printHeader() {
    cout << endl;
    cout << "================================================" << endl;
    cout << "Design Patterns in Modern C++ by Dmitri Nesteruk" << endl;
-   cout << "Builder, simple builder                          "<< endl;
+   cout << "Builder, fluent builder                          "<< endl;
    cout << "================================================" << endl;
    cout << endl;
 }
 
-struct HtmlSimpleBuilder {
+struct HtmlFluentBuilder {
    HtmlElement root;
-   HtmlSimpleBuilder( const std::string root_name ) { root.name = root_name; }
+   HtmlFluentBuilder( const std::string root_name ) { root.name = root_name; }
 
-   void add_child( const std::string child_name, const std::string child_text ) {
+   HtmlFluentBuilder & add_child( const std::string child_name, const std::string child_text ) {
       HtmlElement e( child_name, child_text );
       root.elements.emplace_back( e );
+      return * this;
    }
 
    std::string str() { return root.str(); }
@@ -30,9 +31,8 @@ struct HtmlSimpleBuilder {
 int main(int argc, char *argv[]) {
    printHeader();
 
-   HtmlSimpleBuilder builder{ "ul" };
-   builder.add_child( "li", "witaj");
-   builder.add_child( "li", "świecie");
+   HtmlFluentBuilder builder{ "ul" };
+   builder.add_child( "li", "witaj").add_child( "li", "świecie");
    cout << builder.str();
 
    cout << endl;

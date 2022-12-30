@@ -7,5 +7,6 @@ CMakeFiles/*
 Testing/*
 bin/no_builder
 bin/simple_builder
+bin/fluent_builder
 build.ninja
 cmake_install.cmake
