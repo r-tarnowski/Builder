@@ -4,8 +4,7 @@
 
 #include <string>
 #include <vector>
-//#include <iostream>
-//#include <fstream>
+#include <sstream>
 
 #ifndef HTML_ELEMENT_H
 
