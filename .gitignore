@@ -9,5 +9,6 @@ bin/no_builder
 bin/simple_builder
 bin/fluent_builder
 bin/better_fluent_builder
+bin/groovy_builder
 build.ninja
 cmake_install.cmake

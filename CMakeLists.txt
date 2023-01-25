@@ -15,6 +15,7 @@ set(TARGET_NO_BUILDER no_builder)
 set(TARGET_SIMPLE_BUILDER simple_builder)
 set(TARGET_FLUENT_BUILDER fluent_builder)
 set(TARGET_BETTER_FLUENT_BUILDER better_fluent_builder)
+set(TARGET_GROOVY_BUILDER groovy_builder)
 
 include_directories(${INCLUDE_DIR} "/export/devel/platform/boost/$ENV{BOOST_VERSION}/boost/include")
 
@@ -27,6 +28,7 @@ set(SOURCES_NO_BUILDER ${SRC_DIR}/NoBuilder.cpp)
 set(SOURCES_SIMPLE_BUILDER ${SRC_DIR}/SimpleBuilder.cpp)
 set(SOURCES_FLUENT_BUILDER ${SRC_DIR}/FluentBuilder.cpp)
 set(SOURCES_BETTER_FLUENT_BUILDER ${SRC_DIR}/BetterFluentBuilder.cpp)
+set(SOURCES_GROOVY_BUILDER ${SRC_DIR}/GroovyBuilder.cpp)
 
 #add_library(${TARGET_LIB} STATIC ${SOURCES_LIB})
 
@@ -34,6 +36,7 @@ add_executable(${TARGET_NO_BUILDER} ${SOURCES_NO_BUILDER})
 add_executable(${TARGET_SIMPLE_BUILDER} ${SOURCES_SIMPLE_BUILDER})
 add_executable(${TARGET_FLUENT_BUILDER} ${SOURCES_FLUENT_BUILDER})
 add_executable(${TARGET_BETTER_FLUENT_BUILDER} ${SOURCES_BETTER_FLUENT_BUILDER})
+add_executable(${TARGET_GROOVY_BUILDER} ${SOURCES_GROOVY_BUILDER})
 #target_link_libraries(${TARGET_SUB} ${APP_LINK_LIBS})
 
 #add_dependencies( ${TARGET_SUB} ${TARGET_LIB} )
