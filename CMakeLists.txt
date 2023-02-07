@@ -30,7 +30,7 @@ set(SOURCES_SIMPLE_BUILDER ${SRC_DIR}/SimpleBuilder.cpp)
 set(SOURCES_FLUENT_BUILDER ${SRC_DIR}/FluentBuilder.cpp)
 set(SOURCES_BETTER_FLUENT_BUILDER ${SRC_DIR}/BetterFluentBuilder.cpp)
 set(SOURCES_GROOVY_BUILDER ${SRC_DIR}/GroovyBuilder.cpp)
-set(SOURCES_COMPLEX_BUILDER ${SRC_DIR}/ComplexBuilder.cpp)
+set(SOURCES_COMPLEX_BUILDER ${SRC_DIR}/Person.cpp ${SRC_DIR}/PersonBuilder.cpp ${SRC_DIR}/ComplexBuilder.cpp)
 
 
 #add_library(${TARGET_LIB} STATIC ${SOURCES_LIB})

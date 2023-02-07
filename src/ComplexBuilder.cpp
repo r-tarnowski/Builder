@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+#include <PersonAddressBuilder.h>
+#include <PersonJobBuilder.h>
+
 using std::cout;
 using std::endl;
 
@@ -13,19 +16,14 @@ void printHeader() {
    cout << endl;
 }
 
-class Person {
-   std::string street_address;
-   std::string post_code;
-   std::string city;
-   std::string company_name;
-   std::string position;
-   int annual_income = 0;
-   
-   Person() {}
-};
-
 int main(int argc, char *argv[]) {
    printHeader();
    cout << endl;
+
+   Person p = Person::create().lives().at("Aleja Gdańska 123").with_postcode("82-200").in("Gdańsk")
+                              .works().at("BambuSoft").as_a("analityk").earning(15000);
+
+   cout << p << endl;
+
    return 0;
 }
