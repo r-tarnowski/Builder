@@ -21,8 +21,7 @@ class Person
   }
   
 public:
-  ~Person()
-  {
+  ~Person() {
     std::cout << "Zniszczono obiekt Person\n";
   }
 
@@ -36,12 +35,17 @@ public:
       position{move(other.position)},
       annual_income{other.annual_income}
   {
+     std::cout << "Person(Person&& other: " << other << ") called" << std::endl;
   }
 
-  Person& operator=(Person&& other)
-  {
-    if (this == &other)
-      return *this;
+  Person& operator=(Person&& other) {
+
+    std::cout << "operator=(Person&& other: " << other << ") called" << std::endl;
+
+    if (this == &other) {
+       return *this;
+    }
+
     street_address = move(other.street_address);
     post_code = move(other.post_code);
     city = move(other.city);

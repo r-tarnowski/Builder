@@ -25,5 +25,7 @@ int main(int argc, char *argv[]) {
 
    cout << p << endl;
 
+   std::cout << argv[0] << " - end" << std::endl;
+
    return 0;
 }

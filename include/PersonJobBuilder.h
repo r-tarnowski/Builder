@@ -3,31 +3,33 @@
 
 #include "PersonBuilder.h"
 
-class PersonJobBuilder : public PersonBuilderBase
-{
-  typedef PersonJobBuilder Self;
+class PersonJobBuilder : public PersonBuilderBase {
 public:
   explicit PersonJobBuilder(Person& person)
-  : PersonBuilderBase { person }
-  {
+  : PersonBuilderBase { person } {
+     std::cout << "PersonJobBuilder(Person& person: " << person << ") called" << std::endl;
   }
 
-  Self& at(std::string company_name)
-  {
-    person.company_name = company_name;
-    return *this;
+   virtual ~PersonJobBuilder() {
+      std::cout << "~PersonJobBuilder() called" << std::endl;
+   }
+
+   PersonJobBuilder & at(std::string company_name) {
+      std::cout << "PersonJobBuilder::at(" << company_name << ") called" << std::endl;
+      person.company_name = company_name;
+      return *this;
   }
 
-  Self& as_a(std::string position)
-  {
-    person.position = position;
-    return *this;
+   PersonJobBuilder & as_a(std::string position) {
+      std::cout << "PersonJobBuilder::as_a(" << position << ") called" << std::endl;
+      person.position = position;
+      return *this;
   }
 
-  Self& earning(int annual_income)
-  {
-    person.annual_income = annual_income;
-    return *this;
+   PersonJobBuilder & earning(int annual_income) {
+      std::cout << "PersonJobBuilder::earning(" << annual_income << ") called" << std::endl;
+      person.annual_income = annual_income;
+      return *this;
   }
 };
 

@@ -7,29 +7,32 @@
 
 class PersonAddressBuilder : public PersonBuilderBase
 {
-  typedef PersonAddressBuilder Self;
 public:
   explicit PersonAddressBuilder(Person& person)
-  : PersonBuilderBase{person}
-  {
+  : PersonBuilderBase{person} {
+     std::cout << "PersonAddressBuilder(Person& person: " << person << ") called" << std::endl;
   }
 
-  Self& at(std::string street_address)
-  {
+   virtual ~PersonAddressBuilder() {
+      std::cout << "~PersonAddressBuilder() called" << std::endl;
+   }
+
+   PersonAddressBuilder & at(std::string street_address) {
+    std::cout << "PersonAddressBuilder::at(" << street_address << ") called" << std::endl;
     person.street_address = street_address;
     return *this;
   }
 
-  Self& with_postcode(std::string post_code)
-  {
-    person.post_code = post_code;
-    return *this;
+   PersonAddressBuilder & with_postcode(std::string post_code) {
+      std::cout << "PersonAddressBuilder::with_postcode(" << post_code << ") called" << std::endl;
+      person.post_code = post_code;
+      return *this;
   }
 
-  Self& in(std::string city)
-  {
-    person.city = city;
-    return *this;
+   PersonAddressBuilder & in(std::string city) {
+      std::cout << "PersonAddressBuilder::in(" << city << ") called" << std::endl;
+      person.city = city;
+      return *this;
   }
 };
 
